@@ -4,8 +4,8 @@ import { fetchDataFailure, fetchDataSuccess } from "../store/GraphDataSlice";
 
 function* getGraphDataSaga(action: any): Generator<any, void, any> {
   try {
-    const API_ID = REACT_APP_API_CLIENT_ID;
-    const API_SECRET = REACT_APP_API_CLIENT_SECRET;
+    const API_ID = process.env.REACT_APP_API_CLIENT_ID;
+    const API_SECRET = process.env.REACT_APP_API_CLIENT_SECRET;
     const api_url: string = "/v1/datalab/shopping/category/keyword/age";
     const formData = action.payload;
     const request_body = formData;
