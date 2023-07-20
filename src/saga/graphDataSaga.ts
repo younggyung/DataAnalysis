@@ -4,9 +4,11 @@ import { fetchDataFailure, fetchDataSuccess } from "../store/GraphDataSlice";
 
 function* getGraphDataSaga(action: any): Generator<any, void, any> {
   try {
+
+    const PROXY = window.location.hostname === 'localhost' ? '' : '/proxy';
     const API_ID = process.env.REACT_APP_API_CLIENT_ID;
     const API_SECRET = process.env.REACT_APP_API_CLIENT_SECRET;
-    const api_url: string = `${Proxy}/v1/datalab/shopping/category/keyword/age`;
+    const api_url: string = `${PROXY}/v1/datalab/shopping/category/keyword/age`;
     const formData = action.payload;
     const request_body = formData;
     const headers = {
